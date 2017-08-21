@@ -1,0 +1,13 @@
+D:\C#\Projekty\ONP Calculator\ONP Calculator\bin\Debug\ONP Calculator.exe.config
+D:\C#\Projekty\ONP Calculator\ONP Calculator\bin\Debug\ONP Calculator.exe
+D:\C#\Projekty\ONP Calculator\ONP Calculator\bin\Debug\ONP Calculator.pdb
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\ONP Calculator.csprojResolveAssemblyReference.cache
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\MainWindow.baml
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\MainWindow.g.cs
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\App.g.cs
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\ONP Calculator_MarkupCompile.cache
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\ONP Calculator.g.resources
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\ONP_Calculator.Properties.Resources.resources
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\ONP Calculator.csproj.GenerateResource.Cache
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\ONP Calculator.exe
+D:\C#\Projekty\ONP Calculator\ONP Calculator\obj\Debug\ONP Calculator.pdb
