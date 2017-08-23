@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +34,6 @@ namespace ONP_Calculator
         {
             if (e.Key == Key.Enter)
             {
-
                 resultText.Text = calculateOnp(inputText.Text).ToString();
             }
         }
@@ -50,11 +49,11 @@ namespace ONP_Calculator
                 {
                     for (int i = 0; i < sInput.Length; i++)
                     {
-                        if (Char.IsNumber(sInput[i]) || sInput[i] == '.')
+                        if (Char.IsNumber(sInput[i]) || sInput[i] == '.' || sInput[i] == ',')
                         {
                             if (i == 0)
                                 output = output + sInput[i];
-                            else if (Char.IsNumber(sInput[i - 1]) || sInput[i - 1] == '.')
+                            else if (Char.IsNumber(sInput[i - 1]) || sInput[i - 1] == '.' || sInput[i - 1] == ',')
                                 output = output + sInput[i];
                             else
                                 output = output + ' ' + sInput[i];
@@ -99,15 +98,15 @@ namespace ONP_Calculator
                 }
                 else
                 {
-                    MessageBox.Show("Błędne wejście", "Calculator ONP", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBox.Show("Błędne wejście!", "Calculator ONP", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Błędne wejście " + ex.Message, "Calculator ONP", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Błędne wejście! " + ex.Message, "Calculator ONP", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-
-            return output.Trim();
+            
+            return output.Replace(',', '.').Trim();
         }
 
         public static double calculateOnp(string input)
@@ -130,29 +129,37 @@ namespace ONP_Calculator
                 }
                 else
                 {
-                    b = resultStack.Pop();
-                    a = resultStack.Pop();
-
-                    switch (splitedInput[i])
+                    try
                     {
-                        case "+": resultStack.Push(a + b);
-                            break;
-                        case "-": resultStack.Push(a - b);
-                            break;
-                        case "*": resultStack.Push(a * b);
-                            break;
-                        case "/": resultStack.Push(a / b);
-                            break;
-                        case "^": resultStack.Push(Math.Pow(a, b));
-                            break;
-                        case "%": resultStack.Push(a % b);
-                            break;
-                        default:
-                            break;
+                        b = resultStack.Pop();
+                        a = resultStack.Pop();
+
+                        switch (splitedInput[i])
+                        {
+                            case "+": resultStack.Push(a + b);
+                                break;
+                            case "-": resultStack.Push(a - b);
+                                break;
+                            case "*": resultStack.Push(a * b);
+                                break;
+                            case "/": resultStack.Push(a / b);
+                                break;
+                            case "^": resultStack.Push(Math.Pow(a, b));
+                                break;
+                            case "%": resultStack.Push(a % b);
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Błędne wejście! " + ex.Message, "Calculator ONP", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    } 
+                    
                 }
             }
-            return resultStack.Peek();
+            return (resultStack.Count > 0) ? resultStack.Peek() : 0.0;
         }
         
         public static int Priority(char input)
